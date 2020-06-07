@@ -5,57 +5,50 @@ import { robots } from "../components/robots";
 import SearchBox from "../components/Searchbox";
 import Scroll from "../components/Scroll";
 import ErrorBoundary from "../components/ErrorBoundary";
-import { setSearchField } from "../actions";
+import { setSearchField, requestRobots } from "../actions";
 
 const mapStateToProps = (state) => {
   return {
-    searchField: state.searchField,
+    searchField: state.searchRobots.searchField,
+    robots: state.requestRobots.robots,
+    isPending: state.requestRobots.isPending,
+    error: state.requestRobots.error,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onRequestRobots: () => dispatch(requestRobots()),
   };
 };
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      robots: robots,
-    };
-  }
-
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) => this.setState({ robots: users }));
+    this.props.onRequestRobots();
   }
 
   render() {
-    const { robots } = this.state;
-    const { searchField, onSearchChange } = this.props;
+    const { searchField, onSearchChange, robots, isPending } = this.props;
     const filteredRobots = robots.filter((robot) => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
-    if (!robots.length) {
-      return <h1>Loading...</h1>;
-    } else {
-      return (
-        <div className="tc">
-          <header>
-            <h1 className="ttu pa3 pb4 f1">RoboFriends</h1>
-          </header>
-          <SearchBox searchChange={onSearchChange} />
-          <Scroll>
-            <ErrorBoundary>
-              <CardList robots={filteredRobots} />
-            </ErrorBoundary>
-          </Scroll>
-        </div>
-      );
-    }
+
+    return isPending ? (
+      <h1>Loading...</h1>
+    ) : (
+      <div className="tc">
+        <header>
+          <h1 className="ttu pa3 pb4 f1">RoboFriends</h1>
+        </header>
+        <SearchBox searchChange={onSearchChange} />
+        <Scroll>
+          <ErrorBoundary>
+            <CardList robots={filteredRobots} />
+          </ErrorBoundary>
+        </Scroll>
+      </div>
+    );
   }
 }
 
