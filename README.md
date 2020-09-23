@@ -1,3 +1,7 @@
+# Robo Friends
+
+This is a React.js app which search for robots entered in the search field. It is a Progressive Web App with Redux used as a state management library.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
