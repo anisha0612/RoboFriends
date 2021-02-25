@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check if the Scroll component is rendered 1`] = `
+<div
+  style={
+    Object {
+      "height": "700px",
+      "overflowY": "scroll",
+    }
+  }
+/>
+`;

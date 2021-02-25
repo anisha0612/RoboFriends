@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check if the SearchBox component is rendered 1`] = `
+<div>
+  <input
+    aria-label="Search Robots"
+    className="ba bg-light-yellow mb5 pa3 br2"
+    placeholder="Search Robots"
+    type="search"
+  />
+</div>
+`;

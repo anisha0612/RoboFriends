@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render Card component using snapshot testing 1`] = `
+<div>
+  <div
+    className="tc br4 dib bg-light-yellow grow ma3 pa3 shadow-4"
+  >
+    <img
+      alt="roboPhoto"
+      src="https://robohash.org/1?size=200x200"
+    />
+    <div>
+      <h2>
+        John Doe
+      </h2>
+      <p>
+        john.doe@gmail.com
+      </p>
+    </div>
+  </div>
+  <div
+    className="tc br4 dib bg-light-yellow grow ma3 pa3 shadow-4"
+  >
+    <img
+      alt="roboPhoto"
+      src="https://robohash.org/2?size=200x200"
+    />
+    <div>
+      <h2>
+        Jane Doe
+      </h2>
+      <p>
+        jane.doe@gmail.com
+      </p>
+    </div>
+  </div>
+</div>
+`;
