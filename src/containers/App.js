@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CardList from "../components/CardList";
-import { robots } from "../components/robots";
+// import { robots } from "../components/robots";
 import SearchBox from "../components/Searchbox";
 import Scroll from "../components/Scroll";
 import ErrorBoundary from "../components/ErrorBoundary";
@@ -37,9 +37,9 @@ class App extends Component {
     return isPending ? (
       <h1>Loading...</h1>
     ) : (
-      <div className="tc">
+      <div className='tc'>
         <header>
-          <h1 className="ttu pa3 pb4 f1">RoboFriends</h1>
+          <h1 className='ttu pa3 pb4 f1'>RoboFriends</h1>
         </header>
         <SearchBox searchChange={onSearchChange} />
         <Scroll>
